@@ -24,10 +24,13 @@ async def ping(ctx):
 @bot.command()
 async def embcheck(ctx):
     msg = await ctx.channel.send(embed=embed)
-    await msg.add_reaction('\N{REGIONAL INDICATOR SYMBOL LETTER A}','\N{REGIONAL INDICATOR SYMBOL LETTER B}')
+    await msg.add_reaction('\N{REGIONAL INDICATOR SYMBOL LETTER A}')
     await msg.add_reaction('\N{REGIONAL INDICATOR SYMBOL LETTER B}')
     await msg.add_reaction('\N{REGIONAL INDICATOR SYMBOL LETTER C}')
     await msg.add_reaction('\N{REGIONAL INDICATOR SYMBOL LETTER D}')
+        
+async def discord.on_reaction_add(rea,user):
+    await send(user)
     
     
 
