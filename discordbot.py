@@ -25,7 +25,7 @@ async def ping(ctx):
 async def embcheck(ctx):
     msg = await ctx.channel.send(embed=embed)
     await msg.add_reaction('\N{THUMBS UP SIGN}')
-    await msg.add_reaction('\N{DIGIT ONE}')
+    await msg.add_reaction('\N{REGIONAL INDICATOR SYMBOL LETTER A}')
     await msg.add_reaction('⏫')
    
 
