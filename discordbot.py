@@ -1,4 +1,5 @@
-# from discord.ext import commands
+from discord.ext import commands
+import datetime
 import discord
 import os
 import traceback
@@ -6,6 +7,7 @@ import traceback
 bot = commands.Bot(command_prefix='/')
 token = os.environ['DISCORD_BOT_TOKEN']
 
+embed = discord.Embed(title="Embedのタイトル",description="Embedの概要")
 
 @bot.event
 async def on_command_error(ctx, error):
@@ -16,7 +18,10 @@ async def on_command_error(ctx, error):
 
 @bot.command()
 async def ping(ctx):
-    await ctx.send('pongpong')
-
+    await ctx.send('pong')
+    
+@bot.command()
+async def check(ctx):
+    await ctx.channel.send(embed=embed)
 
 bot.run(token)
