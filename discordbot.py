@@ -31,9 +31,5 @@ async def embcheck(ctx):
     # name = await ctx.target_reaction.user()
     # await ctx.send(name)
     
-@client.event
-async for user in reaction.users():
-    await channel.send('{0} has reacted with {1.emoji}!'.format(user, reaction))
-   
 
 bot.run(token)
