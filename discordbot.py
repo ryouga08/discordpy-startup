@@ -9,6 +9,7 @@ token = os.environ['DISCORD_BOT_TOKEN']
 
 embed = discord.Embed(title="タイトル",description="中身",color=0xff0000)
 embed.add_field(name="フィールドの名前",value="フィールドの値")
+emoji = '\N{THUMBS UP SIGN}'
 
 @bot.event
 async def on_command_error(ctx, error):
@@ -22,7 +23,12 @@ async def ping(ctx):
     await ctx.send('pong')
     
 @bot.command()
-async def check(ctx):
+async def embcheck(ctx):
     await ctx.channel.send(embed=embed)
+   
+@bot.command()
+async def embcheck(ctx):
+    await ctx.add_reaction(emoji)
+    
 
 bot.run(token)
