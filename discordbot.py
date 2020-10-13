@@ -28,8 +28,11 @@ async def embcheck(ctx):
     await msg.add_reaction('\N{REGIONAL INDICATOR SYMBOL LETTER B}')
     await msg.add_reaction('\N{REGIONAL INDICATOR SYMBOL LETTER C}')
     await msg.add_reaction('\N{REGIONAL INDICATOR SYMBOL LETTER D}')
-    name = await ctx.target_reaction.user()
-    await ctx.send(name)
+    # name = await ctx.target_reaction.user()
+    # await ctx.send(name)
+
+async for user in reaction.users():
+    await channel.send('{0} has reacted with {1.emoji}!'.format(user, reaction))
    
 
 bot.run(token)
