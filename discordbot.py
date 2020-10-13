@@ -28,7 +28,7 @@ async def embcheck(ctx):
    
 @bot.command()
 async def check(ctx):
-    await ctx.add_reaction(emoji)
+    await ctx.client.add_reaction(emoji)
     
 
 bot.run(token)
