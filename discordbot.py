@@ -9,7 +9,6 @@ token = os.environ['DISCORD_BOT_TOKEN']
 
 embed = discord.Embed(title="タイトル",description="中身",color=0xff0000)
 embed.add_field(name="フィールドの名前",value="フィールドの値")
-emoji = DIGIT ONE
 
 @bot.event
 async def on_command_error(ctx, error):
@@ -25,7 +24,7 @@ async def ping(ctx):
 @bot.command()
 async def embcheck(ctx):
     msg = await ctx.channel.send(embed=embed)
-    await msg.add_reaction(emoji)
+    await msg.add_reaction('⏫')
     
    
 
