@@ -25,10 +25,8 @@ async def ping(ctx):
 @bot.command()
 async def embcheck(ctx):
     await ctx.channel.send(embed=embed)
+    await ctx.add_reaction(emoji)
    
-@bot.command()
-async def check(ctx):
-    await ctx.client.add_reaction(emoji)
-    
+
 
 bot.run(token)
