@@ -24,8 +24,9 @@ async def ping(ctx):
 @bot.command()
 async def embcheck(ctx):
     msg = await ctx.channel.send(embed=embed)
+    await msg.add_reaction('/U+0031')
     await msg.add_reaction('⏫')
-    
+    await msg.add_reaction('⏫')
    
 
 
