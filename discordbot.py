@@ -27,7 +27,7 @@ async def embcheck(ctx):
     await ctx.channel.send(embed=embed)
    
 @bot.command()
-async def embcheck(ctx):
+async def check(ctx):
     await ctx.add_reaction(emoji)
     
 
