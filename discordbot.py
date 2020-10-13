@@ -7,7 +7,7 @@ import traceback
 bot = commands.Bot(command_prefix='/')
 token = os.environ['DISCORD_BOT_TOKEN']
 
-embed = discord.Embed(title="タイトル",description="21\n22",color=0xff0000)
+embed = discord.Embed(title="タイトル",description="A\nB\nC\nD",color=0xff0000)
 embed.add_field(name="フィールドの名前",value="フィールドの値")
 
 @bot.event
@@ -28,6 +28,8 @@ async def embcheck(ctx):
     await msg.add_reaction('\N{REGIONAL INDICATOR SYMBOL LETTER B}')
     await msg.add_reaction('\N{REGIONAL INDICATOR SYMBOL LETTER C}')
     await msg.add_reaction('\N{REGIONAL INDICATOR SYMBOL LETTER D}')
+    name = awaite ctx.target_reaction.user()
+    await ctx.send(name)
    
 
 
