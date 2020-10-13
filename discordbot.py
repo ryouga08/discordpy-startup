@@ -6,7 +6,6 @@ import traceback
 
 bot = commands.Bot(command_prefix='/')
 token = os.environ['DISCORD_BOT_TOKEN']
-ms = discord.Message()
 
 embed = discord.Embed(title="タイトル",description="中身",color=0xff0000)
 embed.add_field(name="フィールドの名前",value="フィールドの値")
@@ -26,6 +25,6 @@ async def ping(ctx):
 @bot.command()
 async def embcheck(ctx):
     await ctx.channel.send(embed=embed)
-    await ctx.ms.add_reaction(emoji)
+    # await ctx.ms.add_reaction(emoji)
    
 bot.run(token)
