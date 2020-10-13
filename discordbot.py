@@ -28,10 +28,6 @@ async def embcheck(ctx):
     await msg.add_reaction('\N{REGIONAL INDICATOR SYMBOL LETTER B}')
     await msg.add_reaction('\N{REGIONAL INDICATOR SYMBOL LETTER C}')
     await msg.add_reaction('\N{REGIONAL INDICATOR SYMBOL LETTER D}')
-        
-async def discord.on_reaction_add(rea,user):
-    await send(user)
-    
     
 
 bot.run(token)
