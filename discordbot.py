@@ -6,7 +6,6 @@ import traceback
 
 bot = commands.Bot(command_prefix='/')
 token = os.environ['DISCORD_BOT_TOKEN']
-rea = discord.Reaction()
 
 embed = discord.Embed(title="タイトル",description="A\nB\nC\nD",color=0xff0000)
 embed.add_field(name="フィールドの名前",value="フィールドの値")
