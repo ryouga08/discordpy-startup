@@ -24,10 +24,8 @@ async def ping(ctx):
 @bot.command()
 async def embcheck(ctx):
     msg = await ctx.channel.send(embed=embed)
-    await msg.add_reaction('\N{REGIONAL INDICATOR SYMBOL LETTER A}')
-    await msg.add_reaction('\N{REGIONAL INDICATOR SYMBOL LETTER B}')
-    await msg.add_reaction('\N{REGIONAL INDICATOR SYMBOL LETTER C}')
-    await msg.add_reaction('\N{REGIONAL INDICATOR SYMBOL LETTER D}')
-    
+    for reaction in ['\N{REGIONAL INDICATOR SYMBOL LETTER A}', '\N{REGIONAL INDICATOR SYMBOL LETTER B}', '\N{REGIONAL INDICATOR SYMBOL LETTER C}','\N{REGIONAL INDICATOR SYMBOL LETTER D}']:
+        await msg.add_reaction(reaction)
+
 
 bot.run(token)
