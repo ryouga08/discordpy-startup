@@ -34,7 +34,7 @@ async def embcheck(ctx):
         except asyncio.TimeoutError:
             await ctx.send('time over')
         else:
-            print(str(reaction.emoji))
+            # print(str(reaction.emoji))
             if str(reaction.emoji) == '\N{REGIONAL INDICATOR SYMBOL LETTER A}':
                 reaction_member.append(user.name)
                 cnt -= 1
