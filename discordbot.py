@@ -41,7 +41,7 @@ async def embcheck(ctx):
                 cnt -= 1
                 await msg.add_reaction('\N{REGIONAL INDICATOR SYMBOL LETTER E}')   
 
-@client.command()
+@bot.command()
 async def rect(ctx, about = "募集", cnt = 4, settime = 10.0):
     cnt, settime = int(cnt), float(settime)
     reaction_member = [">>>"]
