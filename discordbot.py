@@ -30,7 +30,7 @@ async def embcheck(ctx):
     cnt = 2
     while len(reaction_member)-1 <= cnt:
         try:
-            reaction, user = await client.wait_for('reaction_add',timeout=10.0,check=check)
+            reaction, user = await client.wait_for('reaction_add',timeout=0.1,check=check)
         except asyncio.TimeoutError:
             await ctx.send('time over')
         else:
