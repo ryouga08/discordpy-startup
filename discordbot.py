@@ -4,6 +4,8 @@ import discord
 import os
 import traceback
 
+client = discord.Client() #インスタンス化
+
 bot = commands.Bot(command_prefix='/')
 token = os.environ['DISCORD_BOT_TOKEN']
 
@@ -27,7 +29,7 @@ async def embcheck(ctx):
     for reaction in ['\N{REGIONAL INDICATOR SYMBOL LETTER A}', '\N{REGIONAL INDICATOR SYMBOL LETTER B}', '\N{REGIONAL INDICATOR SYMBOL LETTER C}','\N{REGIONAL INDICATOR SYMBOL LETTER D}']:
         await msg.add_reaction(reaction)
 
-@commands.Cog.listener()
+@client.event 
 async def on_raw_reaction_add(payload):
     if payload.emoji.name == "👍": 
         await payload.send("hello")
