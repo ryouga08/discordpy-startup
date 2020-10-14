@@ -3,6 +3,7 @@ import datetime
 import discord
 import os
 import traceback
+import asyncio
 
 bot = commands.Bot(command_prefix='/')
 token = os.environ['DISCORD_BOT_TOKEN']
@@ -25,15 +26,17 @@ async def embcheck(ctx):
             pass
         else:
             return emoji == '\N{REGIONAL INDICATOR SYMBOL LETTER A}'
-    
-    reaction, user = await client.wait_for('reaction_add', check=check)
-    # print(str(reaction.emoji))
+    try:
+        reaction, user = await client.wait_for('reaction_add',timeout=10.0,check=check)
+    except asyncio.TimeoutError:
+        await ctx.send('time over')
+    else:
+        print(str(reaction.emoji))
         if str(reaction.emoji) == '\N{REGIONAL INDICATOR SYMBOL LETTER A}':
-            reaction_member.append(user.name)
             emded = discord.Embed(title="title",description="A\nB\nC\nD",colour=0xff0000)
             embed.add_field(name = "name",value = "value")
             await msg.edit(embed=embed)   
-    
+
 @bot.event
 async def on_message(message):
     # 送信者がbotである場合は弾く
