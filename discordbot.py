@@ -34,22 +34,16 @@ async def embcheck(ctx):
     msg = await ctx.channel.send(embed=embed)
     for reaction in ['\N{REGIONAL INDICATOR SYMBOL LETTER A}', '\N{REGIONAL INDICATOR SYMBOL LETTER B}', '\N{REGIONAL INDICATOR SYMBOL LETTER C}','\N{REGIONAL INDICATOR SYMBOL LETTER D}']:
         await msg.add_reaction(reaction)
+@commands.Cog.listener()
+async def on_raw_reaction_add(self, payload):
+    if payload.member.bot: # BOTアカウントは無視する
+        return
 
-@client.event
-async def on_message(message):
-    # 送信者がbotである場合は弾く
-    if message.author.bot:
-        return 
-    if message.content.startswith("/get_reactions "):
-        link = message.content.replace("/get_reactions ", "")
-        match = link_regex.match(link)
-        channel = client.get_channel(int(match.group("channel_id")))
-        target_message = await channel.fetch_message(int(match.group("message_id")))
-        reactions = target_message.reactions
-        text = "絵文字 : 個数\n"
-        for reaction in reactions:
-            text += f"{reaction.emoji} : {reaction.count}\n"
+    if payload.channel_id != 123456789123: # 特定のチャンネル以外でリアクションした場合は無視する
+        return
 
-        await message.channel.send(text)
+    if payload.emoji.name == "👍": # 特定の絵文字
+       await payload.member.add_roles(payload.member.guild.get_role(123456789123)) # ロールID
+            
 
 bot.run(token)
