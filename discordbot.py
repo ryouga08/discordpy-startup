@@ -37,17 +37,6 @@ async def embcheck(ctx):
             embed.add_field(name = "name",value = "value")
             await msg.edit(embed=embed)   
 
-@bot.event
-async def on_message(message):
-    # 送信者がbotである場合は弾く
-    if message.author.bot:
-        return 
-    # メッセージの本文が 鳴いて だった場合
-    if message.content == "hello":
-        # メッセージが送られてきたチャンネルに送る
-        await message.channel.send("hello")
-        
-
         
 
             
