@@ -38,9 +38,7 @@ async def embcheck(ctx):
             if str(reaction.emoji) == '\N{REGIONAL INDICATOR SYMBOL LETTER A}':
                 reaction_member.append(user.name)
                 cnt -= 1
-                emded = discord.Embed(title="title",description="A\nB\nC\nD",colour=0xff0000)
-                embed.add_field(name = "name",value = "value")
-                await msg.edit(embed=embed)   
+                await msg.add_reaction('\N{REGIONAL INDICATOR SYMBOL LETTER E}')   
 
         
 
