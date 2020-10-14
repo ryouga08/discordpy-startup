@@ -25,14 +25,14 @@ async def embcheck(ctx):
         if user.bot == True:    # botは無視
             pass
         else:
-            return emoji == '\N{REGIONAL INDICATOR SYMBOL LETTER A}'
+            return emoji == '\N{REGIONAL INDICATOR SYMBOL LETTER E}'
     try:
         reaction, user = await client.wait_for('reaction_add',timeout=10.0,check=check)
     except asyncio.TimeoutError:
         await ctx.send('time over')
     else:
         print(str(reaction.emoji))
-        if str(reaction.emoji) == '\N{REGIONAL INDICATOR SYMBOL LETTER A}':
+        if str(reaction.emoji) == '\N{REGIONAL INDICATOR SYMBOL LETTER E}':
             emded = discord.Embed(title="title",description="A\nB\nC\nD",colour=0xff0000)
             embed.add_field(name = "name",value = "value")
             await msg.edit(embed=embed)   
