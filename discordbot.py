@@ -3,6 +3,14 @@ import datetime
 import discord
 import os
 import traceback
+import re
+
+link_regex = re.compile(
+            r'^https?://(?:(ptb|canary)\.)?discordapp\.com/channels/'
+            r'(?:([0-9]{15,21})|(@me))'
+            r'/(?P<channel_id>[0-9]{15,21})/(?P<message_id>[0-9]{15,21})/?$'
+        )
+client = discord.Client()
 
 bot = commands.Bot(command_prefix='/')
 token = os.environ['DISCORD_BOT_TOKEN']
@@ -27,5 +35,21 @@ async def embcheck(ctx):
     for reaction in ['\N{REGIONAL INDICATOR SYMBOL LETTER A}', '\N{REGIONAL INDICATOR SYMBOL LETTER B}', '\N{REGIONAL INDICATOR SYMBOL LETTER C}','\N{REGIONAL INDICATOR SYMBOL LETTER D}']:
         await msg.add_reaction(reaction)
 
+@client.event
+async def on_message(message):
+    # 送信者がbotである場合は弾く
+    if message.author.bot:
+        return 
+    if message.content.startswith("/get_reactions "):
+        link = message.content.replace("/get_reactions ", "")
+        match = link_regex.match(link)
+        channel = client.get_channel(int(match.group("channel_id")))
+        target_message = await channel.fetch_message(int(match.group("message_id")))
+        reactions = target_message.reactions
+        text = "絵文字 : 個数\n"
+        for reaction in reactions:
+            text += f"{reaction.emoji} : {reaction.count}\n"
+
+        await message.channel.send(text)
 
 bot.run(token)
