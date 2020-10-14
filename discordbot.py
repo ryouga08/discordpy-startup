@@ -29,10 +29,13 @@ async def on_message(message):
     if message.content == "hello":
         # メッセージが送られてきたチャンネルに送る
         await message.channel.send("hello")
+        
+@bot.event
+async def 
 
 @bot.event
 async def on_raw_reaction_add(payload):
-    if payload.emoji.name == "👍": 
+    if payload.emoji.name == '\N{REGIONAL INDICATOR SYMBOL LETTER A}': 
         await payload.channel.send("hi")
         
 
