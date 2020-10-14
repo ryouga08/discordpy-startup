@@ -32,7 +32,7 @@ async def embcheck(ctx):
 @client.event 
 async def on_raw_reaction_add(payload):
     if payload.emoji.name == "👍": 
-        await payload.send("hello")
+        await send("hello")
        
             
 bot.run(token)
