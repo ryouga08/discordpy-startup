@@ -25,7 +25,7 @@ async def embcheck(ctx):
         if user.bot == True:    # botは無視
             pass
         else:
-            return emoji == '\N{REGIONAL INDICATOR SYMBOL LETTER E}'
+            return emoji == '\N{REGIONAL INDICATOR SYMBOL LETTER A}'
     reaction_member = [">>>"]
     cnt = 2
     while len(reaction_member)-1 <= cnt:
@@ -35,7 +35,7 @@ async def embcheck(ctx):
             await ctx.send('time over')
         else:
             print(str(reaction.emoji))
-            if str(reaction.emoji) == '\N{REGIONAL INDICATOR SYMBOL LETTER E}':
+            if str(reaction.emoji) == '\N{REGIONAL INDICATOR SYMBOL LETTER A}':
                 reaction_member.append(user.name)
                 cnt -= 1
                 emded = discord.Embed(title="title",description="A\nB\nC\nD",colour=0xff0000)
