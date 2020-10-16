@@ -6,6 +6,7 @@ import traceback
 import asyncio
 
 bot = commands.Bot(command_prefix='/')
+client = discord.Client()
 token = os.environ['DISCORD_BOT_TOKEN']
 
 @bot.command()
@@ -44,9 +45,8 @@ async def embcheck(ctx):
 @bot.command()
 async def length(ctx):
     await ctx.send("入力待ち")
-    @bot.event
-    async def on_message(message):
-        await message.send('Your message is {} characters long.'.format(len(message.message.content)))
+    wait_message = await client.wait_for("message")
+    await ctx.send(wait_message)
 
             
 bot.run(token)
