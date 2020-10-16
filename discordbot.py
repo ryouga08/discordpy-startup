@@ -45,8 +45,10 @@ async def embcheck(ctx):
 @bot.command()
 async def length(ctx):
     await ctx.send("入力待ち")
-    wait_message = await client.wait_for("message")
+    def check(msg):
+        return msg.author == message.author
+    wait_message = await client.wait_for("message",check=check)
     await ctx.send(wait_message.content)
-
+    await ctx.send("end")
             
 bot.run(token)
