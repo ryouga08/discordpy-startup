@@ -43,7 +43,10 @@ async def embcheck(ctx):
  
 @bot.command()
 async def length(ctx):
-    await ctx.send('Your message is {} characters long.'.format(len(ctx.message.content)))
+    await ctx.send("入力待ち")
+    @bot.command()
+    async def point(ctx):
+        await ctx.send('Your message is {} characters long.'.format(len(ctx.message.content)))
 
             
 bot.run(token)
