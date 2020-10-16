@@ -40,7 +40,10 @@ async def embcheck(ctx):
                 reaction_member.append(user.name)
                 cnt -= 1
                 await msg.add_reaction('\N{REGIONAL INDICATOR SYMBOL LETTER E}')                  
-
+ 
+@bot.command()
+async def length(ctx):
+    await ctx.send('Your message is {} characters long.'.format(len(ctx.message.content)))
 
             
 bot.run(token)
