@@ -31,7 +31,7 @@ async def embcheck(ctx):
     cnt = 2
     while len(reaction_member)-1 <= cnt:
         try:
-            reaction, user = await ctx.client.wait_for('reaction_add',timeout=60.0,check=check)
+            reaction, user = await client.wait_for('reaction_add',timeout=60.0,check=check)
         except asyncio.TimeoutError:
             await ctx.send('time over')
             break
@@ -47,7 +47,7 @@ async def length(ctx):
     await ctx.send("入力待ち")
     def check(msg):
         return msg.author == message.author
-    wait_message = await ctx.client.wait_for("message",check=check)
+    wait_message = await client.wait_for("message",check=check)
     await ctx.send(wait_message.content)
     await ctx.send("end")
             
