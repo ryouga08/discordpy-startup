@@ -49,6 +49,6 @@ async def length(ctx):
             return b.content == 'こんにちは'
 
     msg = await client.wait_for('message', check=hello_check, timeout=10.0)
-    await message.channel.send(f'{msg.author.mention}、こんにちは！')
+    await ctx.channel.send(f'{msg.author.mention}、こんにちは！')
     
 bot.run(token)
