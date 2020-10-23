@@ -44,7 +44,7 @@ async def embcheck(ctx):
  
 @bot.event
 async def on_message(message):
-    if message.content == "/start""
+    if message.content == "/start"
         channel = message.channel
         await message.channel.send("入力待ち")
 
