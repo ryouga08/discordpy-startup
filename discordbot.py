@@ -1,14 +1,13 @@
-from discord.ext import commands
 import datetime
 import discord
 import os
 import traceback
 import asyncio
 
-bot = commands.Bot(command_prefix='/')
+client = discord.Client()
 token = os.environ['DISCORD_BOT_TOKEN']      
  
-@bot.event
+@client.event
 async def on_message(message):
     if message.content == "/start"
         channel = message.channel
