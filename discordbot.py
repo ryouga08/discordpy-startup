@@ -44,10 +44,9 @@ async def embcheck(ctx):
  
 @bot.event
 async def on_message(message):
-    if message.content == "/start":
-        m = fast_result.result()
+    if message.content == "/start""
         channel = message.channel
-        await message.channel.send(m)  # f文字列（フォーマット済み文字列リテラル）
+        await message.channel.send("入力待ち")
 
         def hello_check(b):
             return b.content == 'こんにちは'
