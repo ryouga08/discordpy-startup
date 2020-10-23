@@ -42,13 +42,17 @@ async def embcheck(ctx):
                 cnt -= 1
                 await msg.add_reaction('\N{REGIONAL INDICATOR SYMBOL LETTER E}')                  
  
-@bot.command()
-async def length(ctx):
-    await ctx.send("入力待ち")
-    def hello_check(b):
-        return b.content == 'こんにちは'
+@bot.event
+async def on_message(message):
+    if message.content == "/start":
+        m = fast_result.result()
+        channel = message.channel
+        await message.channel.send(m)  # f文字列（フォーマット済み文字列リテラル）
 
-    msg = await client.wait_for('message', check=hello_check, timeout=10.0)
-    await ctx.send(f'{msg.author.mention}、こんにちは！')
+        def hello_check(b):
+            return b.content == 'こんにちは'
+
+        msg = await client.wait_for('message', check=hello_check, timeout=10.0)
+        await message.channel.send(f'{msg.author.mention}、こんにちは！')
     
 bot.run(token)
